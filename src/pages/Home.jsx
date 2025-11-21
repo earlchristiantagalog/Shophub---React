@@ -5,7 +5,6 @@ export default function EcommerceHomepage() {
   const [fontAwesomeLoaded, setFontAwesomeLoaded] = useState(false);
 
   useEffect(() => {
-    // Load Font Awesome CSS
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
@@ -48,87 +47,122 @@ export default function EcommerceHomepage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+
+      {/* HERO SECTION */}
       <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="flex items-center space-x-2 mb-4">
+
+            {/* LEFT TEXT */}
+            <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start space-x-2 mb-3">
                 <i className="fas fa-chart-line"></i>
-                <span className="text-sm font-semibold">TRENDING NOW</span>
+                <span className="text-xs md:text-sm font-semibold">TRENDING NOW</span>
               </div>
-              <h2 className="text-5xl font-bold mb-4">Summer Sale</h2>
-              <p className="text-xl mb-6">Up to 50% off on selected items</p>
-              <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-flex items-center space-x-2">
+
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 leading-tight">
+                Summer Sale
+              </h2>
+
+              <p className="text-lg md:text-xl mb-6">
+                Up to 50% off on selected items
+              </p>
+
+              <button className="bg-white text-purple-600 px-6 py-3 sm:px-8 rounded-lg font-semibold hover:bg-gray-100 inline-flex items-center space-x-2 transition">
                 <span>Shop Now</span>
                 <i className="fas fa-arrow-right"></i>
               </button>
             </div>
+
+            {/* RIGHT IMAGE */}
             <div className="md:w-1/2 flex justify-center">
-              <div className="text-9xl">🛍️</div>
+              <div className="text-7xl sm:text-8xl md:text-9xl">🛍️</div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h3 className="text-3xl font-bold text-gray-900 mb-8">Shop by Category</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {/* CATEGORIES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+          Shop by Category
+        </h3>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           {categories.map((category, index) => (
             <div 
               key={index}
-              className={`${category.color} p-8 rounded-xl cursor-pointer hover:shadow-lg transition transform hover:-translate-y-1`}
+              className={`${category.color} p-6 sm:p-8 rounded-xl cursor-pointer hover:shadow-lg transition transform hover:-translate-y-1`}
             >
-              <div className="text-5xl mb-3">{category.icon}</div>
-              <h4 className="text-lg font-semibold text-gray-800">{category.name}</h4>
+              <div className="text-4xl sm:text-5xl mb-2">{category.icon}</div>
+              <h4 className="text-sm sm:text-lg font-semibold text-gray-800">{category.name}</h4>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex justify-between items-center mb-8">
-          <h3 className="text-3xl font-bold text-gray-900">Featured Products</h3>
-          <button className="text-purple-600 font-semibold hover:text-purple-700 inline-flex items-center space-x-1">
+      {/* FEATURED PRODUCTS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-0">
+            Featured Products
+          </h3>
+
+          <button className="text-purple-600 font-semibold hover:text-purple-700 inline-flex items-center space-x-1 text-sm sm:text-base">
             <span>View All</span>
             <i className="fas fa-arrow-right text-sm"></i>
           </button>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {featuredProducts.map((product) => (
             <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
-              <div className="bg-gray-100 h-48 flex items-center justify-center text-7xl">
+              <div className="bg-gray-100 h-40 sm:h-48 flex items-center justify-center text-6xl sm:text-7xl">
                 {product.image}
               </div>
-              <div className="p-5">
-                <h4 className="font-semibold text-gray-900 mb-2">{product.name}</h4>
+
+              <div className="p-4 sm:p-5">
+                <h4 className="font-semibold text-gray-900 mb-2 text-base sm:text-lg">
+                  {product.name}
+                </h4>
+
                 <div className="flex items-center mb-3">
-                  <div className="flex text-yellow-400">
+                  <div className="flex text-yellow-400 text-sm">
                     {[...Array(5)].map((_, i) => (
                       <i 
                         key={i} 
-                        className={`${i < Math.floor(product.rating) ? 'fas' : 'far'} fa-star text-sm`}
+                        className={`${i < Math.floor(product.rating) ? 'fas' : 'far'} fa-star`}
                       ></i>
                     ))}
                   </div>
-                  <span className="text-sm text-gray-500 ml-2">({product.reviews})</span>
+                  <span className="text-xs sm:text-sm text-gray-500 ml-2">
+                    ({product.reviews})
+                  </span>
                 </div>
+
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-gray-900">${product.price}</span>
+                  <span className="text-xl sm:text-2xl font-bold text-gray-900">
+                    ${product.price}
+                  </span>
+
                   <button 
                     onClick={addToCart}
-                    className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+                    className="bg-purple-600 text-white text-sm sm:text-base px-3 py-2 sm:px-4 rounded-lg hover:bg-purple-700 transition"
                   >
                     Add to Cart
                   </button>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
+
       </section>
+
     </div>
   );
 }
