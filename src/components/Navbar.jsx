@@ -18,7 +18,7 @@ const Navbar = ({ cartCount = 0 }) => {
           <div className="flex items-center space-x-4">
             {/* Search Bar */}
             <div className="hidden md:flex items-center bg-gray-100 rounded-lg px-4 py-2">
-              <span className="text-gray-500">🔍</span>
+              <span className="text-gray-500"><i className="fas fa-search text-xl"></i></span>
               <input
                 type="text"
                 placeholder="Search products..."
@@ -29,7 +29,7 @@ const Navbar = ({ cartCount = 0 }) => {
             {/* Wishlist */}
             <button className="p-2 hover:bg-gray-100 rounded-full">
               <span role="img" aria-label="wishlist" className="text-gray-700 text-xl">
-                ❤️
+                <i className="fas fa-heart text-xl"></i>
               </span>
             </button>
 
@@ -39,7 +39,7 @@ const Navbar = ({ cartCount = 0 }) => {
               className="text-gray-700 hover:text-blue-600 font-semibold"
             >
               <span role="img" aria-label="profile" className="text-gray-700 text-xl">
-                👤
+                <i className="fas fa-user text-xl"></i>
               </span>
             </Link>
 
@@ -49,7 +49,7 @@ const Navbar = ({ cartCount = 0 }) => {
               className="p-2 hover:bg-gray-100 rounded-full relative"
             >
               <span role="img" aria-label="cart" className="text-gray-700 text-xl">
-                🛒
+                <i className="fas fa-shopping-cart text-xl"></i>
               </span>
               {cartCount > 0 && (
                 <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
